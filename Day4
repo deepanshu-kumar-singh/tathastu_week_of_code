@@ -1,0 +1,151 @@
+                  Program-1
+
+
+size = int(input("Enter the size of tuple: "))
+
+print("Enter the elements in tuple one by one")
+
+arr = []
+
+for i in range(size):
+
+    arr.append(input())
+
+arr = tuple(arr)
+
+element = input("Enter the element whose occurrences you want to know: ")
+
+print("Tuple contains the element", arr.count(element), "times")
+
+
+                 Program-2
+
+
+sizeList = int(input("Enter the no of tuples you want to add in the list: "))
+
+sizeTuple = int(input("Enter the no of elements you want to add in each tuple: "))
+
+List = []
+
+for i in range(sizeList):
+
+    print("Enter the elements in Tuple", i + 1)
+
+    Tuple = []
+
+    for j in range(sizeTuple):
+
+        Tuple.append(int(input("Enter the element " + str(j + 1) + ": ")))
+
+    List.append(tuple(Tuple))
+
+N = int(input("Enter the Nth index about which you want to sort the list: "))
+
+List.sort(key = lambda x : x[N])
+
+print("After sorting tuple List by Nth index sort:",List)
+
+
+                Program-3
+
+size = int(input("Enter the no of items you want to add in Dictonary: "))
+
+diction = dict()
+
+for i in range(size):
+
+    key = input("Enter the key for item " + str(i + 1) + " in dictonary: ")
+
+    value = int(input("Enter the value for item " + str(i + 1) + " in dictonary: "))
+
+    diction[key] = value
+
+    
+
+print("The second largest value in the Dictonary is", list(sorted(diction.values()))[-2])
+
+
+                   Program-4
+
+
+
+size = int(input("Enter the no of items you want to add in Dictonary: "))
+
+diction = dict()
+
+for i in range(size):
+
+    key = input("Enter the key for item " + str(i + 1) + " in dictonary: ")
+
+    value = int(input("Enter the value for item " + str(i + 1) + " in dictonary: "))
+
+    diction[key] = value
+
+result = dict()
+
+for key,value in diction.items():
+
+    if value not in result.values():
+
+        result[key] = value
+
+print("Dictonary after removing duplicate values: ", result)
+
+
+                 Program-5
+
+
+noOfVotes = int(input("Enter the no of votes: "))
+
+votes = []
+
+for i in range(noOfVotes):
+
+    votes.append(input("Enter the name of the Candidate to cast the Vote: "))
+
+vote = []
+
+for name in votes:
+
+    vote.append((name, votes.count(name)))  
+
+vote.sort(key = lambda x : x[0], reverse = True )
+
+vote.sort(key = lambda x : x[1])
+
+print("The name of the candidate who won the election is", vote[-1][0])
+
+  
+
+                  Program-6
+
+
+
+size = int(input("Enter the no of words you want to add in dictonary: "))
+
+dict = []
+
+for i in range(size):
+
+    dict.append(input("Enter the word " + str(i + 1) + ": "))
+
+size = int(input("Enter the no of character you want to add in array: "))
+
+array = []
+
+result = []
+
+print("Enter the characters in array one by one ")
+
+for i in range(size):
+
+    array.append(input())
+
+for word in dict: 
+
+    if set(word).issubset(set(array)):
+
+        result.append(word)
+
+print(", ".join(result) + ".")
+
