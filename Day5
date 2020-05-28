@@ -1,0 +1,84 @@
+                           Program-1
+Def replace_0_with_5(number):
+return int(str(number).
+replace('0','5'))
+number = int(input("Enter the number you want to check: "))
+print("The number after replacing all 0 with 5 will be", replace_0_with_5(number)) 
+
+
+                          Program-2
+ 
+
+def replaceGreatestInteger(List):
+ for i in range(size-1): 
+List[i] = max(List[i+1:])
+ return List
+size = int(input("Enter the size of the list: "))
+List = []
+for i in range(size): List.append(int(input("Enter the element number " + str(i+1) + " in the List: ")))
+
+print("The list after replacing every element with greatest element on right side is: ", replaceGreatestInteger(List))
+
+                            Program-3
+
+
+
+
+
+
+def House(List):
+ if len(List) == 2: 
+return max(List)
+ if len(List) == 1: 
+return List[0]
+ if len(List) == 3:
+return max(List[1], List[0]+house(List[2:]))
+ return max(List[1] + House(List[3:]), List[0] + House(List[2:]))
+size = int(input("Enter the number of Houses in a line: "))
+List = []
+for i in range(size): List.append(int(input("Enter the value in the House number " + str(i + 1) + ": ")))
+
+print("The maximum stolen value from Houses is", House(List))
+
+                         Program-4
+
+ 
+
+def knapsack(weight, List):
+ if weight == 0 or
+ len(List) == 0:
+ return 0
+ if len(List) == 1: 
+If List[0][0] > weight: 
+return 0 
+return List[0][1] 
+if List[0][0] > weight:
+ return knapsack((weight, List[1:])) 
+return max(List[0][1] + knapsack(weight - List[0][0], List[1:]),
+ knapsack(weight, List[1:]))
+size = int(input("Enter the number of items you want to enter: "))
+List = []
+for i in range(size):
+ weight = int(input("Enter the weight for item number " + str(i + 1) + ": "))
+ value = int(input("Enter the value for item number " + str(i + 1) + ": ")) List.append((weight,value))weight = int(input("Enter the value of weight capacity: "))
+print("The maximum value for the given weight value pair is ", knapsack(weight, List))
+
+                        Program-5
+def sortEvenOdd(List): 
+odd = []
+ even = []
+ for x in List:
+ if x % 2 == 0:
+ even.append(x) 
+else :
+ odd.append(x)
+ return
+ sorted(odd, reverse = True) + sorted(even)size = int(input("Enter the number of elements you want to add in the array: "))
+List = []
+for i in range(size): List.append(int(input("Enter the element number " + str(i + 1) + " in the list: ")))
+print("The list of numbers after sorting them according to given condition is", str(sortEvenOdd(List))[1:-1])
+
+
+
+
+
