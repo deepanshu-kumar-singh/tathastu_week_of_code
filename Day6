@@ -1,0 +1,278 @@
+                         Program-1
+ def lps(str): 
+n = len(str) 
+L = [[0 for x in range(n)]for y in range(n)] for i in range(n): 
+L[i][i] = 1 
+for cl in range( 2, n+1): 
+for i in range(n - cl + 1): 
+j = i + cl - 1
+ if (str[i] == str[j] and cl == 2): 
+L[i][j] = 2 elif (str[i] == str[j]): 
+L[i][j] = L[i + 1][j - 1] + 2
+ else: 
+L[i][j] = max(L[i][j - 1],L[i + 1][j]) r
+eturn L[0][n - 1]
+def minimumNumberOfDeletions( str): 
+n = len(str) l = lps(str) 
+return (n - l) i
+f __name__ == "__main__": 
+str = input('Enter string')
+ print( "Minimum number of deletions = " , minimumNumberOfDeletions(str)) 
+
+
+                           Program-2
+ Class Solution(object):
+ def mergeKLists(self, lists): 
+amount = len(lists) interval = 1
+ while interval < amount: 
+for i in range(0, amount - interval, interval * 2): 
+lists[i] = self.merge2Lists(lists[i], lists[i + interval])
+ interval *= 2 return lists[0]
+ if 
+amount > 0 
+else
+ lists
+ def merge2Lists(self, l1, l2): 
+head = point = ListNode(0) 
+while l1 and l2:
+ if 
+l1.val <= l2.val:
+ point.next = l1 l1 = l1.next 
+else: 
+point.next = l2 l2 = l1 l1 = point.next.next point = point.next 
+if not l1: 
+point.next=l2 
+else:
+ point.next=l1
+ return head.next
+
+                           Program-3
+import sys 
+def maxProduct(arr, n): 
+if n < 3: 
+return -1 max_product = -(sys.maxsize - 1) 
+for i in range(0, n - 2): 
+for j in range(i + 1, n - 1): f
+or k in range(j + 1, n): 
+max_product = max( max_product, arr[i] * arr[j] * arr[k]) 
+return max_product arr = [10, 3, 5, 6, 20] n = len(arr) max = maxProduct(arr, n) 
+if max == -1: 
+print("No Tripplet Exits") 
+else:
+ print("Maximum product is", max) 
+
+                      Program-4
+ 
+
+def findMinLength(strList):
+ return len(min(arr, key = len)) 
+def allContainsPrefix(strList, str, start, end):
+ for i in range(0, len(strList)): 
+word = strList[i]
+ for j in range(start, end + 1):
+ if word[j] != str[j]:
+ return False 
+return True
+def CommonPrefix(strList):
+ index = findMinLength(strList) prefix = "" high = 0, index - 1 while low <= high: 
+mid = int(low + (high - low) / 2)
+ if
+ allContainsPrefix(strList,strList[0], low, mid):
+ prefix = prefix + strList[0][low:mid + 1] low = mid + 1 
+else: 
+high = mid - 1 
+return prefix arr = ["geeksforgeeks", "geeks", "geek", "geezer"] lcp = CommonPrefix(arr)
+ if
+ len(lcp) > 0:
+ print ("The longest common prefix is " + str(lcp)) 
+else:
+ print ("There is no common prefix"):
+
+
+                            Program-5
+ 
+
+def solve(arr):
+ a = int(arr[0])
+ b = int(arr[1]) 
+c = int(arr[2])
+ for i in range(3,arr.size): 
+If (a+b+c)>1 and (a+b+c)<2:
+ print(a," ",b," ",c) 
+if (a+b+c)>=2: 
+if a>b and a>c: 
+a=int(arr[i])
+ else:
+ if(b>a and b>c): 
+b=int(arr[i]) 
+else: 
+c=int(arr[i]) .
+else: 
+if a<b && a<c : 
+a=int(arr[i]) 
+else
+ if b<a and b<c: 
+b=int(arr[i]) 
+else:
+ c=int(arr[i])
+
+
+                          Program-6
+class Solution(object): 
+def rotate(self, matrix): 
+temp_matrix = [] 
+column = len(matrix)-1
+ for column in range(len(matrix)):
+ temp = []
+ for row in range(len(matrix)-1,-1,-1): temp.append(matrix[row][column]) temp_matrix.append(temp)
+ for i in range(len(matrix)):
+ for j in range(len(matrix)): 
+matrix[i][j] = temp_matrix[i][j]
+ return
+ matrixob1 = Solution()
+print(ob1.rotate([[1,5,7],[9,6,3],[2,1,3]]))
+
+
+                        Program-7
+def findElement(arr, n): l
+eftMax = [None] * n leftMax[0] = float('-inf') 
+for i in range(1, n): l
+eftMax[i] = max(leftMax[i-1], arr[i-1]) rightMin = float('inf') f
+or i in range(n-1, -1, -1): 
+if leftMax[i] < arr[i] and rightMin > arr[i]: return 
+i rightMin = min(rightMin, arr[i])
+ return -1 if __name__ == "__main__": arr = [5, 1, 4, 3, 6, 8, 10, 7, 9] n = len(arr) print("Index of the element is", findElement(arr, n))
+
+
+                            Program-8
+ 
+
+def sort012( a, arr_size):
+ lo = 0
+ hi = arr_size - 1 mid = 0
+ while mid <= hi:
+ if a[mid] == 0:
+ a[lo], a[mid] = a[mid], a[lo] lo = lo + 1 
+mid = mid + 1 
+elif
+ a[mid] == 1:
+ mid = mid + 1
+ else:
+ a[mid], a[hi] = a[hi], a[mid] hi = hi - 1 return a def 
+printArray( a): 
+for k in a:
+ print k, arr = [0, 1, 1, 0, 1, 2, 1, 2, 0, 0, 0, 1] arr_size = len(arr)
+ arr = sort012( arr, arr_size)
+ print "Array after segregation :\n", printArray(arr)
+
+                           Program-9
+ 
+
+def segregate(arr, size):
+ j = 0
+ for i in range(size):
+ if (arr[i] <= 0): 
+arr[i], arr[j] = arr[j], arr[i] j += 1
+‌ return def
+‌ findMissingPositive(arr, size): for i in range(size): if (abs(arr[i]) - 1 < size and arr[abs(arr[i]) - 1] > 0): arr[abs(arr[i]) - 1] = -arr[abs(arr[i]) - 1] for i in range(size): if (arr[i] > 0): return i + 1 return size + 1def findMissing(arr, size): shift = segregate(arr, size) return findMissingPositive(arr[shift:], size - shift) arr = [ 0, 10, 2, -10, -20 ] arr_size = len(arr) missing = findMissing(arr, arr_size) print("The smallest positive missing number is ", missing) 
+
+                           Program-10
+def indNext(number,n): 
+for i in range(n-1,0,-1): 
+if number[i] > number[i-1]: 
+break
+ if i == 1 and 
+number[i] <= number[i-1]: 
+print "Next number not possible" 
+return x = number[i-1] 
+smallest = i 
+For j in range(i+1,n):
+ if number[j] > x and 
+number[j] < number[smallest]: 
+smallest = j number[smallest],
+number[i-1] = number[i-1], number[smallest] 
+x = 0 
+For j in range(i): 
+x = x * 10 + number[j] 
+number = sorted(number[i:]) 
+for j in range(n-i): 
+x = x * 10 + number[j] 
+print "Next number with set of digits is",x digits = "534976" 
+number = map(int ,digits) findNext(number, len(digits)) 
+
+
+                              Program-11
+MAX = 100005
+Fibonacci = set() 
+def createHash(): 
+global fibonacci prev , c
+urr = 0, 1 
+fibonacci.add(prev) f
+ibonacci.add(curr) 
+while (curr <= MAX): t
+emp = curr + prev i
+f temp <= MAX: 
+fibonacci.add(temp) 
+prev = curr curr = tempdef checkArray(arr, n): 
+sum = 0 for i in range( n ): 
+if (arr[i] in fibonacci): s
+Sum += arr[i] i
+f (sum in fibonacci): 
+return True 
+return Falseif __name__ == "__main__":  arr = [ 1, 2, 4, 8, 2 ] 
+n = len(arr) 
+ createHash() 
+if (checkArray(arr, n)): 
+print("Yes") 
+else: print("No") 
+
+
+                               Program-12
+import sys
+ def checkI
+fSortRotated(arr, n): 
+minEle = sys.maxsize 
+maxEle = -sys.maxsize - 1 
+minIndex = -1 
+for i in range(n): 
+if arr[i]< minEle: 
+minEle = arr[i] 
+minIndex = i f
+lag1 = 1
+ for i in range(1, minIndex): 
+if arr[i] < arr[i - 1]: f
+lag1 = 0 
+break 
+flag2 = 2 
+for i in range(minIndex + 1, n) : i
+f arr[i] < arr[i - 1]: f
+lag2 = 0 
+break i
+f (flag1 and flag2 and arr[n - 1] < arr[minIndex - 1]): 
+print("YES")
+ else: 
+print("NO") 
+arr = [3, 4, 5, 1, 2 ] 
+n = len(arr)
+ checkIfSortRotated(arr, n) 
+
+                               Program-13
+def A(m, n, s ="% s"): 
+print(s % ("A(% d, % d)" % (m, n))) 
+if m == 0: 
+return n + 1 
+if n == 0: 
+return A(m - 1, 1, s) 
+n2 = A(m, n - 1, s % ("A(% d, %% s)" % (m - 1)))
+ return A(m - 1, n2, s) print(A(1,)
+
+                             Program-14
+def kthSmallest(arr, n, k): 
+rra.sort() 
+return a
+rr[k-1] 
+If __name__=='__main__': a
+rr = [12, 3, 5, 7, 19] 
+N = len(arr) k = 2 p
+rint("K'th smallest element is", kthSmallest(arr, n, k))
+
